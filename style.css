@@ -463,3 +463,9 @@ ul { list-style: none; }
   .why-inner { gap: 0.8rem; }
   .why-sep { display: none; }
 }
+.nav-logo-img {
+  height: 60px; /* Adjust this value to make the logo bigger or smaller */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
