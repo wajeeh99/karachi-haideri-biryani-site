@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Now – Karachi Haideri Biryani</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="order.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-emoji">🍛</span>
+      <div class="logo-text">
+        <span class="logo-main">HAIDERI</span>
+        <span class="logo-sub">KARACHI BIRYANI</span>
+      </div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link">← Back to Home</a></li>
+      <li><a href="index.html#menu" class="nav-link">Menu</a></li>
+      <li><a href="index.html#location" class="nav-link">Location</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="order-page">
+
+  <!-- PAGE HEADER -->
+  <div class="order-page-header">
+    <div class="order-header-content">
+      <div class="section-tag">PLACE YOUR ORDER</div>
+      <h1 class="order-page-title">🛒 آرڈر کریں</h1>
+      <p>Fill in your details and we'll deliver fresh to your doorstep!</p>
+      <p class="header-phone">📞 <a href="tel:03151210262">0315-1210262</a></p>
+    </div>
+  </div>
+
+  <div class="order-layout">
+
+    <!-- FORM COLUMN -->
+    <div class="order-form-col">
+      <form id="orderForm" novalidate>
+
+        <!-- SECTION: Customer Details -->
+        <div class="form-section">
+          <div class="form-section-title"><span class="form-sec-icon">👤</span> Customer Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name <span class="req">*</span></label>
+              <input type="text" id="fullName" placeholder="e.g. Ahmed Khan" required />
+              <span class="field-error" id="err-fullName">Please enter your name</span>
+            </div>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp <span class="req">*</span></label>
+              <input type="tel" id="phone" placeholder="03XX-XXXXXXX" required />
+              <span class="field-error" id="err-phone">Please enter phone number</span>
+            </div>
+            <div class="form-group">
+              <label for="altPhone">Alternate Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="altPhone" placeholder="03XX-XXXXXXX" />
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION: Order Items -->
+        <div class="form-section">
+          <div class="form-section-title"><span class="form-sec-icon">🍛</span> Order Items</div>
+          <div id="orderItems">
+            <div class="order-item-row" data-index="0">
+              <div class="item-row-inner">
+                <div class="form-group item-select-group">
+                  <label>Item <span class="req">*</span></label>
+                  <select class="item-select" onchange="updateSummary()">
+                    <option value="" data-price="0">-- Select Item --</option>
+                    <optgroup label="🍽 Hyderabadi Biryani">
+                      <option value="Hyderabadi Pulao Single (1 پاؤ)" data-price="200">Hyderabadi Pulao Single – Rs. 200</option>
+                      <option value="Hyderabadi Pulao Medium (1.5 پاؤ)" data-price="300">Hyderabadi Pulao Medium – Rs. 300</option>
+                      <option value="Hyderabadi Pulao Full (آدھا کلو)" data-price="350">Hyderabadi Pulao Full – Rs. 350</option>
+                      <option value="Hyderabadi Pulao Full 2 (آدھا کلو)" data-price="400">Hyderabadi Pulao Full 2 – Rs. 400</option>
+                      <option value="Hyderabadi Pulao Special 2 (آدھا کلو)" data-price="450">Hyderabadi Pulao Special 2 – Rs. 450</option>
+                    </optgroup>
+                    <optgroup label="🍗 Chicken Biryani">
+                      <option value="Chicken Biryani Single (1 پاؤ)" data-price="180">Chicken Biryani Single – Rs. 180</option>
+                      <option value="Chicken Biryani Medium (1.5 پاؤ)" data-price="250">Chicken Biryani Medium – Rs. 250</option>
+                      <option value="Chicken Biryani Full 1 (آدھا کلو)" data-price="290">Chicken Biryani Full 1 – Rs. 290</option>
+                      <option value="Chicken Biryani Full 2 (آدھا کلو)" data-price="340">Chicken Biryani Full 2 – Rs. 340</option>
+                      <option value="Chicken Biryani Special 2 (آدھا کلو)" data-price="430">Chicken Biryani Special 2 – Rs. 430</option>
+                    </optgroup>
+                    <optgroup label="🍚 Simple / Pulao">
+                      <option value="Saada Biryani Single (1 پاؤ)" data-price="130">Saada Biryani Single – Rs. 130</option>
+                      <option value="Saada Biryani Medium (1.5 پاؤ)" data-price="190">Saada Biryani Medium – Rs. 190</option>
+                      <option value="Saada Biryani Full (آدھا کلو)" data-price="250">Saada Biryani Full – Rs. 250</option>
+                      <option value="Saada Biryani Special (آدھا کلو)" data-price="320">Saada Biryani Special – Rs. 320</option>
+                      <option value="Saada Pulao Single (1 پاؤ)" data-price="150">Saada Pulao Single – Rs. 150</option>
+                      <option value="Saada Pulao Medium (1.5 پاؤ)" data-price="220">Saada Pulao Medium – Rs. 220</option>
+                      <option value="Saada Pulao Full (آدھا کلو)" data-price="280">Saada Pulao Full – Rs. 280</option>
+                    </optgroup>
+                    <optgroup label="🥘 Haleem">
+                      <option value="Haleem Single" data-price="150">Haleem Single – Rs. 150</option>
+                      <option value="Haleem Full" data-price="250">Haleem Full – Rs. 250</option>
+                    </optgroup>
+                    <optgroup label="🥤 Drinks & Extras">
+                      <option value="Cold Drink Regular" data-price="60">Cold Drink Regular – Rs. 60</option>
+                      <option value="Sting Regular" data-price="70">Sting Regular – Rs. 70</option>
+                      <option value="Raita (راشتہ)" data-price="30">Raita – Rs. 30</option>
+                      <option value="Salad (سلاد)" data-price="30">Salad – Rs. 30</option>
+                      <option value="Box Packing (باکس پیکنگ)" data-price="20">Box Packing – Rs. 20</option>
+                      <option value="Shami Kabab (شامی کباب)" data-price="50">Shami Kabab – Rs. 50</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div class="form-group qty-group">
+                  <label>Qty</label>
+                  <div class="qty-ctrl">
+                    <button type="button" class="qty-btn minus" onclick="changeQty(this, -1)">−</button>
+                    <input type="number" class="qty-input" value="1" min="1" max="20" onchange="updateSummary()" />
+                    <button type="button" class="qty-btn plus" onclick="changeQty(this, 1)">+</button>
+                  </div>
+                </div>
+                <button type="button" class="remove-row-btn" onclick="removeRow(this)" title="Remove">✕</button>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="add-item-btn" id="addItemBtn" onclick="addItemRow()">
+            + Add Another Item
+          </button>
+          <div class="form-group" style="margin-top:1rem;">
+            <label for="specialInstructions">Special Instructions <span class="opt">(optional)</span></label>
+            <textarea id="specialInstructions" rows="3" placeholder="e.g. Extra spicy, no onions, extra raita..."></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION: Delivery Location -->
+        <div class="form-section">
+          <div class="form-section-title"><span class="form-sec-icon">📍</span> Delivery Location</div>
+          <div class="form-group">
+            <label for="address">Full Address <span class="req">*</span></label>
+            <textarea id="address" rows="2" placeholder="House/Street/Block/Sector..." required></textarea>
+            <span class="field-error" id="err-address">Please enter your delivery address</span>
+          </div>
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input type="text" id="city" value="Islamabad" />
+            </div>
+            <div class="form-group" style="display:flex;align-items:flex-end;">
+              <button type="button" class="location-btn" onclick="getLocation()">
+                <span id="locBtnText">📡 Use My Location</span>
+              </button>
+            </div>
+          </div>
+          <div id="locationStatus" class="location-status"></div>
+        </div>
+
+        <!-- SECTION: Payment -->
+        <div class="form-section">
+          <div class="form-section-title"><span class="form-sec-icon">💳</span> Payment Method</div>
+          <div class="payment-options">
+            <label class="payment-option active" id="codLabel">
+              <input type="radio" name="payment" value="Cash on Delivery" id="codRadio" checked onchange="togglePayment()" />
+              <div class="payment-option-inner">
+                <span class="pay-icon">💵</span>
+                <div>
+                  <div class="pay-title">Cash on Delivery</div>
+                  <div class="pay-sub">Pay when order arrives</div>
+                </div>
+              </div>
+            </label>
+            <label class="payment-option" id="onlineLabel">
+              <input type="radio" name="payment" value="Online Payment" id="onlineRadio" onchange="togglePayment()" />
+              <div class="payment-option-inner">
+                <span class="pay-icon">📱</span>
+                <div>
+                  <div class="pay-title">Online Payment</div>
+                  <div class="pay-sub">EasyPaisa / JazzCash</div>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Online payment details -->
+          <div id="onlinePayDetails" class="online-pay-details hidden">
+            <div class="online-sub-options">
+              <label class="sub-option">
+                <input type="radio" name="onlineMethod" value="EasyPaisa" checked /> EasyPaisa
+              </label>
+              <label class="sub-option">
+                <input type="radio" name="onlineMethod" value="JazzCash" /> JazzCash
+              </label>
+            </div>
+            <div class="qr-section">
+              <div class="qr-box">
+                <!-- Dummy QR Code SVG -->
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="qr-svg">
+                  <rect width="120" height="120" fill="white"/>
+                  <!-- QR border -->
+                  <rect x="8" y="8" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+                  <rect x="14" y="14" width="23" height="23" fill="#000"/>
+                  <rect x="77" y="8" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+                  <rect x="83" y="14" width="23" height="23" fill="#000"/>
+                  <rect x="8" y="77" width="35" height="35" fill="none" stroke="#000" stroke-width="4"/>
+                  <rect x="14" y="83" width="23" height="23" fill="#000"/>
+                  <!-- QR data dots -->
+                  <rect x="50" y="8" width="6" height="6" fill="#000"/>
+                  <rect x="58" y="8" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="8" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="16" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="16" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="24" width="6" height="6" fill="#000"/>
+                  <rect x="58" y="24" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="24" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="58" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="74" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="82" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="58" width="6" height="6" fill="#000"/>
+                  <rect x="74" y="58" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="58" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="74" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="82" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="66" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="82" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="50" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="58" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="74" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="8" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="16" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="24" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="32" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="40" y="50" width="6" height="6" fill="#000"/>
+                  <rect x="8" y="58" width="6" height="6" fill="#000"/>
+                  <rect x="24" y="58" width="6" height="6" fill="#000"/>
+                  <rect x="40" y="58" width="6" height="6" fill="#000"/>
+                  <rect x="8" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="16" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="32" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="40" y="66" width="6" height="6" fill="#000"/>
+                  <rect x="8" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="24" y="74" width="6" height="6" fill="#000"/>
+                  <rect x="8" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="16" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="24" y="82" width="6" height="6" fill="#000"/>
+                  <rect x="40" y="82" width="6" height="6" fill="#000"/>
+                  <!-- Account number -->
+                  <text x="60" y="110" font-size="6" text-anchor="middle" fill="#000" font-family="monospace">0315-1210262</text>
+                </svg>
+              </div>
+              <div class="qr-instructions">
+                <p class="qr-title">📲 Scan QR to pay</p>
+                <p>Send payment to: <strong style="color:var(--yellow)">0315-1210262</strong></p>
+                <p>Account: <strong>Haideri Biryani</strong></p>
+                <div class="form-group" style="margin-top:0.8rem;">
+                  <label for="transactionId">Transaction ID <span class="req">*</span></label>
+                  <input type="text" id="transactionId" placeholder="e.g. EP123456789" />
+                  <span class="field-error" id="err-transactionId">Please enter transaction ID</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="form-submit-area">
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span id="submitText">🚀 Place Order via WhatsApp</span>
+          </button>
+          <p class="submit-note">You will be redirected to WhatsApp with your order details pre-filled.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUMMARY COLUMN -->
+    <div class="summary-col">
+      <div class="summary-box" id="summaryBox">
+        <div class="summary-title">🧾 Order Summary</div>
+        <div id="summaryItems" class="summary-items">
+          <div class="summary-empty">No items added yet.<br>Select items from the form.</div>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-total-row">
+          <span>Subtotal</span>
+          <span id="summaryTotal" class="summary-total-price">Rs. 0</span>
+        </div>
+        <div class="summary-note">Delivery charges may apply</div>
+        <a href="order.html" class="btn-primary" style="width:100%;justify-content:center;margin-top:1rem;" onclick="document.getElementById('submitBtn').click();return false;">
+          🚀 Place Order
+        </a>
+      </div>
+
+      <!-- Quick menu ref -->
+      <div class="quick-ref">
+        <div class="quick-ref-title">Quick Price Reference</div>
+        <div class="quick-items">
+          <div class="qi"><span>Hyderabadi Single</span><span class="qp">Rs. 200</span></div>
+          <div class="qi"><span>Hyderabadi Full</span><span class="qp">Rs. 350</span></div>
+          <div class="qi"><span>Hyderabadi Special</span><span class="qp">Rs. 450</span></div>
+          <div class="qi"><span>Chicken Single</span><span class="qp">Rs. 180</span></div>
+          <div class="qi"><span>Chicken Full 1</span><span class="qp">Rs. 290</span></div>
+          <div class="qi"><span>Chicken Special</span><span class="qp">Rs. 430</span></div>
+          <div class="qi"><span>Saada Single</span><span class="qp">Rs. 130</span></div>
+          <div class="qi"><span>Saada Full</span><span class="qp">Rs. 250</span></div>
+          <div class="qi"><span>Haleem Single</span><span class="qp">Rs. 150</span></div>
+          <div class="qi"><span>Haleem Full</span><span class="qp">Rs. 250</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <h2>Order Ready!</h2>
+    <p>Redirecting to WhatsApp with your order details...</p>
+    <div class="modal-loader">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+<script src="order.js"></script>
+</body>
+</html>
