@@ -463,8 +463,17 @@ ul { list-style: none; }
   .why-inner { gap: 0.8rem; }
   .why-sep { display: none; }
 }
+/* Makes the logo container flex so items sit side-by-side */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adds a little space between the image and the text */
+  text-decoration: none;
+}
+
+/* Controls the size of your new image */
 .nav-logo-img {
-  height: 60px; /* Adjust this value to make the logo bigger or smaller */
+  height: 50px; /* Adjust as needed */
   width: auto;
   object-fit: contain;
   display: block;
